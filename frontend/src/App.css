@@ -45,14 +45,8 @@
 .navbar-logo-icon {
   width: 34px;
   height: 34px;
-  background: var(--accent);
   border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 16px;
-  color: #0a0a0a;
+  object-fit: cover;
 }
 
 .navbar-center {
@@ -1119,13 +1113,13 @@
 }
 
 .ticker-wrap {
-  display: flex;
-  width: max-content;
-  animation: ticker-slide 35s linear infinite;
+  display: inline-flex;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: ticker-slide 24s linear infinite;
 }
 
 .ticker-item {
-  padding-right: 6rem;
   white-space: nowrap;
 }
 
@@ -1134,6 +1128,6 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
 }

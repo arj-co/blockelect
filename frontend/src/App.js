@@ -197,7 +197,7 @@ function App() {
       {/* ── NAVBAR ── */}
       <nav className="navbar">
         <a className="navbar-logo" href="/" onClick={(e) => { e.preventDefault(); navigate("home"); }}>
-          <div className="navbar-logo-icon">B</div>
+          <img src={process.env.PUBLIC_URL + "/favicon.png"} className="navbar-logo-icon" alt="BlockElect" />
           BlockElect
         </a>
 
@@ -225,7 +225,6 @@ function App() {
       {/* ── TICKER STRIP ── */}
       <div className="ticker-strip">
         <div className="ticker-wrap">
-          <div className="ticker-item">This was one of my first-semester freshman projects. To run it locally, begin by starting the Hardhat development network. 😊</div>
           <div className="ticker-item">This was one of my first-semester freshman projects. To run it locally, begin by starting the Hardhat development network. 😊</div>
         </div>
       </div>
