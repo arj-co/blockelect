@@ -197,7 +197,9 @@ function App() {
       {/* ── NAVBAR ── */}
       <nav className="navbar">
         <a className="navbar-logo" href="/" onClick={(e) => { e.preventDefault(); navigate("home"); }}>
-          <img src={process.env.PUBLIC_URL + "/favicon.png"} className="navbar-logo-icon" alt="BlockElect" />
+          <div className="navbar-logo-icon-wrap">
+            <img src={process.env.PUBLIC_URL + "/favicon.png"} className="navbar-logo-icon-img" alt="BlockElect" />
+          </div>
           BlockElect
         </a>
 
