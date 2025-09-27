@@ -1129,8 +1129,23 @@
   animation: ticker-slide 24s linear infinite;
 }
 
+.ticker-strip:hover .ticker-wrap {
+  animation-play-state: paused;
+}
+
 .ticker-item {
   white-space: nowrap;
+}
+
+.ticker-link {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.ticker-link:hover {
+  opacity: 0.85;
 }
 
 @keyframes ticker-slide {

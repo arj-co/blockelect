@@ -227,7 +227,20 @@ function App() {
       {/* ── TICKER STRIP ── */}
       <div className="ticker-strip">
         <div className="ticker-wrap">
-          <div className="ticker-item">This was one of my first-semester freshman projects. To run it locally, begin by starting the Hardhat development network. 😊</div>
+          <div className="ticker-item">
+            This was one of my first-semester freshman projects. To run it locally, begin by{" "}
+            <a
+              href="/docs"
+              className="ticker-link"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("docs");
+              }}
+            >
+              following the docs
+            </a>
+            . 😊
+          </div>
         </div>
       </div>
 
@@ -526,54 +539,72 @@ function DocsPage({ navigate }) {
       <div className="section-label animate-in">DOCUMENTATION</div>
       <h2 className="animate-in delay-1">Getting Started with BlockElect</h2>
       <p className="section-desc animate-in delay-2">
-        Quick start guide, deployment instructions, and troubleshooting for BlockElect.
+        A complete developer guide detailing setup instructions, smart contract deployment, and troubleshooting configurations.
       </p>
 
       <div className="docs-section animate-in delay-3">
-        <h3>Quick Start</h3>
+        <h3>Local Setup Instructions</h3>
         <ol>
-          <li>Run a local Hardhat node: <code>npx hardhat node</code></li>
-          <li>Deploy the contract: <code>npx hardhat run scripts/deploy.js --network localhost</code></li>
-          <li>Start the frontend: <code>cd frontend && npm start</code></li>
-          <li>In MetaMask, switch to <strong>Localhost 8545</strong> and connect.</li>
+          <li>
+            <strong>Clone Repository:</strong> Clone the project files and enter the directory:
+            <pre><code>git clone https://github.com/arj-co/blockelect.git
+cd blockelect</code></pre>
+          </li>
+          <li>
+            <strong>Install Project Dependencies:</strong> Install root Hardhat development dependencies and frontend React modules:
+            <pre><code>npm install
+cd frontend && npm install
+cd ..</code></pre>
+          </li>
+          <li>
+            <strong>Start Local Blockchain Node:</strong> Initialize the local Hardhat network. This node will run locally at <code>http://127.0.0.1:8545</code> and print pre-funded test accounts with their private keys in the terminal:
+            <pre><code>npx hardhat node</code></pre>
+          </li>
+          <li>
+            <strong>Deploy the Smart Contract:</strong> In a separate terminal window at the project root folder, deploy the smart contract on the local network:
+            <pre><code>npx hardhat run scripts/deploy.js --network localhost</code></pre>
+          </li>
+          <li>
+            <strong>Link Frontend Contract Address:</strong> Copy the newly deployed contract address from the deployment script log and paste it into the <code>CONTRACT_ADDRESS</code> variable inside <code>frontend/src/App.js</code>.
+          </li>
+          <li>
+            <strong>Start React Development Server:</strong> Launch the user interface dashboard in your browser:
+            <pre><code>cd frontend
+npm start</code></pre>
+          </li>
         </ol>
       </div>
 
       <div className="docs-section animate-in delay-4">
-        <h3>How It Works</h3>
-        <p>
-          The app reads candidates from the <code>Voting</code> smart contract deployed on Ethereum. Registered voters can cast their vote through the frontend interface. Each vote is an on-chain transaction that the smart contract validates before recording. Vote counts are stored immutably in the contract state.
-        </p>
+        <h3>MetaMask Configuration</h3>
+        <ul>
+          <li><strong>Add Custom RPC Network:</strong> Open MetaMask, navigate to Networks Settings, click "Add Network Manually", and input the following configuration parameters:
+            <ul>
+              <li>Network Name: <code>Hardhat Localhost</code></li>
+              <li>New RPC URL: <code>http://127.0.0.1:8545</code></li>
+              <li>Chain ID: <code>31337</code></li>
+              <li>Currency Symbol: <code>ETH</code></li>
+            </ul>
+          </li>
+          <li><strong>Import Funded Test Account:</strong> Import one of the pre-funded private keys outputted by the <code>npx hardhat node</code> terminal command to sign balloting transactions.</li>
+          <li><strong>MetaMask Nonce Reset:</strong> If transaction resets or restarts block validations fail, clear MetaMask cache by navigating to <code>Settings → Advanced → Clear activity tab data</code>.</li>
+        </ul>
       </div>
 
       <div className="docs-section animate-in delay-5">
-        <h3>Smart Contract</h3>
-        <p>The <code>Voting.sol</code> contract manages the entire election lifecycle:</p>
-        <ul>
-          <li>Candidates are initialized at deployment with their names</li>
-          <li>Admin can register voter addresses via <code>registerVoter(address)</code></li>
-          <li>Voters call <code>vote(candidateIndex)</code> to cast their ballot</li>
-          <li>The contract enforces one-vote-per-address and validates registration</li>
-          <li>Anyone can read <code>candidates(i)</code> for live vote counts</li>
-        </ul>
+        <h3>How It Works</h3>
+        <p>
+          The application frontend queries candidate data from the <code>Voting</code> smart contract deployed on the local EVM blockchain. Registered voters authorize on-chain transactions using MetaMask to record ballots. The smart contract validates voter eligibility and increments ballot results immutably in blockchain state.
+        </p>
       </div>
 
       <div className="docs-section animate-in">
-        <h3>Troubleshooting</h3>
+        <h3>Smart Contract Functions</h3>
+        <p>The core business rules defined in <code>Voting.sol</code> include:</p>
         <ul>
-          <li><strong><em>could not decode result data (value="0x")</em></strong> — The contract is not deployed on the network MetaMask is connected to. Restart Hardhat and redeploy.</li>
-          <li><strong>RPC rate-limit errors</strong> — Use a dedicated RPC provider (Alchemy/Infura) or run a local Hardhat node.</li>
-          <li><strong>MetaMask nonce errors</strong> — Reset your MetaMask account (Settings → Advanced → Reset Account) after restarting Hardhat.</li>
-        </ul>
-      </div>
-
-      <div className="docs-section animate-in">
-        <h3>Development Notes</h3>
-        <ul>
-          <li>The Hardhat local blockchain is <strong>ephemeral</strong> — restarting the node resets all contracts and balances</li>
-          <li>The contract must be redeployed after each Hardhat restart</li>
-          <li>Voter addresses must be registered on-chain by the admin</li>
-          <li>Contract address in the frontend must match the deployed address</li>
+          <li><strong>Candidates Registry:</strong> Declares names of candidates dynamically during contract deployment.</li>
+          <li><strong>Voter Eligibility:</strong> Allows the admin account to register eligible voter addresses via <code>registerVoter(address)</code>.</li>
+          <li><strong>Ballot Casting:</strong> Restricts ballots to one vote per address, validating registration status via <code>vote(uint candidateIndex)</code>.</li>
         </ul>
       </div>
 
