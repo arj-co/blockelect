@@ -4,7 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Create the root element node using React 18 concurrent rendering pipeline
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Render the application root component wrapped in StrictMode for validation checkups
 root.render(
   <React.StrictMode>
     <App />
