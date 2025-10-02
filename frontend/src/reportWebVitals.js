@@ -1,11 +1,15 @@
+/**
+ * Captures core web vitals performance metrics and executes a callback with the results.
+ * Loads the 'web-vitals' library dynamically to optimize initial bundle size.
+ */
 const reportWebVitals = onPerfEntry => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
+      getCLS(onPerfEntry); // Cumulative Layout Shift
+      getFID(onPerfEntry); // First Input Delay
+      getFCP(onPerfEntry); // First Contentful Paint
+      getLCP(onPerfEntry); // Largest Contentful Paint
+      getTTFB(onPerfEntry); // Time to First Byte
     });
   }
 };
