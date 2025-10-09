@@ -7,15 +7,15 @@ const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
 function App() {
   // ── State ──
-  const [account, setAccount] = useState(null);
-  const [contract, setContract] = useState(null);
-  const [candidates, setCandidates] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [networkName, setNetworkName] = useState(null);
-  const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
-  const [votingIndex, setVotingIndex] = useState(null);
-  const [contractExists, setContractExists] = useState(null);
+  const [account, setAccount] = useState(null); // Current user's connected wallet address
+  const [contract, setContract] = useState(null); // Instantiated Ethers.js Voting contract object
+  const [candidates, setCandidates] = useState([]); // List of candidate structs loaded from blockchain
+  const [loading, setLoading] = useState(false); // UI loading spinner toggle
+  const [networkName, setNetworkName] = useState(null); // Chain name for the current provider
+  const [error, setError] = useState(null); // Global error messages/toast contents
+  const [successMessage, setSuccessMessage] = useState(null); // Global success messages/toast contents
+  const [votingIndex, setVotingIndex] = useState(null); // Index of candidate currently being voted for
+  const [contractExists, setContractExists] = useState(null); // Flag check if bytecode exists at deployed address
 
   // Page routing
   const [currentPage, setCurrentPage] = useState("home");
