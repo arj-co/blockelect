@@ -85,16 +85,19 @@ function App() {
 
   // ── Wallet ──
   async function connectWallet() {
+    // 1. Check if MetaMask / EIP-1193 provider is injected in the window context
     if (!window.ethereum) {
       setError("MetaMask not detected. Please install MetaMask to continue.");
       return;
     }
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
+      // 2. Request user authorization to connect accounts
       await provider.send("eth_requestAccounts", []);
       const network = await provider.getNetwork();
       setNetworkName(network.name || `chain ${network.chainId}`);
 
+      // 3. Verify that the Voting contract code is deployed on the current connected network
       const code = await provider.getCode(CONTRACT_ADDRESS);
       if (code === "0x") {
         setError(
