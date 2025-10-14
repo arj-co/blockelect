@@ -1,3 +1,8 @@
+/* 
+   BlockElect Main Stylesheet
+   - Defines key page layouts, navbar layouts, and animations.
+   - Leverages theme tokens defined globally in index.css.
+*/
 .app {
   min-height: 100vh;
   display: flex;
