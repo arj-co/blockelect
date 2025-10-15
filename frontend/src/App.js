@@ -26,20 +26,22 @@ function App() {
     return saved || "dark";
   });
 
+  // ── Theme Sync Effect ──
+  // Updates the data-theme attribute on root html node to swap CSS variables
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("blockelect-theme", theme);
+  }, [theme]);
+
+  // Handler to toggle light/dark modes
+  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+
   // Preview data
   const previewCandidates = [
     { name: "Harsh", voteCount: "0" },
     { name: "Aditi", voteCount: "0" },
     { name: "Arjun", voteCount: "0" },
   ];
-
-  // ── Theme ──
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("blockelect-theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
 
   // ── Routing ──
   const navigate = useCallback((page) => {

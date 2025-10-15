@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+/* 
+   CSS Theme Variables definition
+   Toggled dynamically by changing document attribute [data-theme="dark|light"]
+*/
 /* ---------- Dark Theme (default) ---------- */
 [data-theme="dark"] {
   --bg-primary: #0a0a0a;
