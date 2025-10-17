@@ -1,8 +1,10 @@
 const hre = require("hardhat");
 
 async function main() {
+  // Load the compiled contract artifact/factory from the artifacts folder
   const Voting = await hre.ethers.getContractFactory("Voting");
 
+  // Define the list of candidate names to be initialized on deployment
   const candidates = ["Harsh", "Aditi", "Arjun", ""];
   const voting = await Voting.deploy(candidates);
 
