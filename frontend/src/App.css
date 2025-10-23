@@ -482,6 +482,7 @@
   background: var(--bg-card-hover);
 }
 
+/* Card hover animation overrides to scale shadows and borders smoothly */
 .card-icon {
   font-size: 28px;
   margin-bottom: 4px;
