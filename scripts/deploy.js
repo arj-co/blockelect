@@ -11,6 +11,7 @@ async function main() {
   await voting.waitForDeployment();
 
   console.log("Voting contract deployed to:", await voting.getAddress());
+  console.log("Ensure to copy this address to CONTRACT_ADDRESS in frontend/src/App.js");
 }
 
 main().catch((error) => {
