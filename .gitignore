@@ -1,7 +1,7 @@
 node_modules
 .env
 
-# Hardhat files
+# Hardhat compilation cache and contract JSON artifacts
 /cache
 /artifacts
 
