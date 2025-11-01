@@ -68,6 +68,7 @@ The system runs on a **local Ethereum network (Hardhat)** for development and de
 - Restarting the node resets contracts and balances
 - Contract must be redeployed after each restart
 - Voter addresses must be registered on-chain
+- **MetaMask Nonce Mismatch**: If you get transaction errors after restarting Hardhat, reset your MetaMask account via *Settings -> Advanced -> Clear activity tab data*.
 
 ---
 
