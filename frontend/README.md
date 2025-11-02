@@ -11,6 +11,8 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+*Note: If port 3000 is occupied, you can launch the client on a custom port using the PORT env parameter (e.g. `PORT=3001 npm start`).*
+
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
