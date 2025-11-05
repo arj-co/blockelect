@@ -15,5 +15,6 @@ module.exports = buildModule("LockModule", (m) => {
     value: lockedAmount,
   });
 
+  // Return the deployed contract instance for integration in other modules
   return { lock };
 });
