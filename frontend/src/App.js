@@ -156,9 +156,13 @@ function App() {
   async function vote(index) {
     if (!contract) return;
     try {
+      // Set the candidate index currently being voted to display the UI loading spinner
       setVotingIndex(index);
+      // Initiate the on-chain vote transaction
       const tx = await contract.vote(index);
+      // Wait for block verification/mining confirmation
       await tx.wait();
+      // Reload candidates with updated vote counts
       await loadCandidates();
       navigate("success");
     } catch (err) {
