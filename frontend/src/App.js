@@ -65,6 +65,7 @@ function App() {
   }, []);
 
   // ── Contract probe ──
+  // Check if contract bytecode is active at target address before starting client interactions
   useEffect(() => {
     async function probeContract() {
       if (!window.ethereum) {
@@ -75,6 +76,7 @@ function App() {
         const provider = new ethers.BrowserProvider(window.ethereum);
         const network = await provider.getNetwork();
         setNetworkName(network.name || `chain ${network.chainId}`);
+        // Fetch contract bytecode; will be "0x" if not deployed on this network
         const code = await provider.getCode(CONTRACT_ADDRESS);
         setContractExists(code && code !== "0x");
       } catch (err) {
