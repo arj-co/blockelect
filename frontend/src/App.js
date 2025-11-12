@@ -130,6 +130,7 @@ function App() {
   }
 
   // ── Candidates ──
+  // Queries candidate list length from contract and maps candidate records to local array
   const loadCandidates = useCallback(async () => {
     if (!contract) return;
     setLoading(true);
@@ -137,6 +138,7 @@ function App() {
       const countRaw = await contract.getCandidatesCount();
       const count = Number(countRaw.toString ? countRaw.toString() : countRaw);
       const list = [];
+      // Synchronously retrieve names and vote tallies for all candidates
       for (let i = 0; i < count; i++) {
         const c = await contract.candidates(i);
         const name = c.name ?? c[0] ?? "";
