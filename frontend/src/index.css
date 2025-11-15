@@ -126,6 +126,7 @@ a:hover {
   color: var(--accent-hover);
 }
 
+/* Custom text selection highlights matching the active design theme */
 ::selection {
   background: var(--accent);
   color: var(--bg-primary);
