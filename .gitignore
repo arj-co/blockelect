@@ -5,6 +5,10 @@ node_modules
 /cache
 /artifacts
 
+# React build outputs exclusions
+/build
+/dist
+
 # TypeChain files
 /typechain
 /typechain-types
