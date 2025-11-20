@@ -27,6 +27,7 @@ contract Voting {
     // Constructor to initialize the list of candidates at deployment time
     constructor(string[] memory candidateNames) {
         admin = msg.sender;
+        // Loop through each initialized candidate name and push onto on-chain state candidate records
         for (uint i = 0; i < candidateNames.length; i++) {
             candidates.push(Candidate(candidateNames[i], 0));
         }
