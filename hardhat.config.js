@@ -8,4 +8,5 @@ require("@nomicfoundation/hardhat-toolbox");
 module.exports = {
   solidity: "0.8.28",
   // Local network settings default to localhost:8545 when running hardhat node
+  // Default network gas configuration resolves dynamically based on hardhat network node settings
 };
