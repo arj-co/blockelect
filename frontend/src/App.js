@@ -123,6 +123,7 @@ function App() {
     }
   }
 
+  // Reset component wallet connection status and clear current contract queries
   function disconnectWallet() {
     setAccount(null);
     setContract(null);
