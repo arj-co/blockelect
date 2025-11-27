@@ -378,6 +378,7 @@ function HomePage({ account, connectWallet, candidates, previewCandidates, loadi
         {/* Live candidates */}
         {candidates.length > 0 && (
           <div className="card-grid animate-in delay-3">
+            {/* Map each candidate fetched from the smart contract to a visual UI card */}
             {candidates.map((c, i) => (
               <div key={i} className="card candidate-card">
                 <div className="candidate-header">
