@@ -999,8 +999,9 @@
   background: rgba(255, 107, 107, 0.08);
 }
 
-/* ──────────── RESPONSIVE ──────────── */
+/* ──────────── RESPONSIVE Breakpoints ──────────── */
 
+/* Tablet and medium screens layout optimizations */
 @media (max-width: 900px) {
   .navbar {
     padding: 14px 24px;
