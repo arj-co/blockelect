@@ -14,6 +14,7 @@ async function main() {
   console.log("Ensure to copy this address to CONTRACT_ADDRESS in frontend/src/App.js");
 }
 
+// Main execution wrapper with standard asynchronous error catcher handlers
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
