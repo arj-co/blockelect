@@ -6,6 +6,7 @@ const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 const JAN_1ST_2030 = 1893456000;
 const ONE_GWEI = 1_000_000_000n;
 
+// Build module exposes deployment options to hardhat ignition deploy scripts runner
 module.exports = buildModule("LockModule", (m) => {
   // Resolve deployment arguments using configurable parameters or fallback values
   const unlockTime = m.getParameter("unlockTime", JAN_1ST_2030);
