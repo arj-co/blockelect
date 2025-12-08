@@ -93,6 +93,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Propagate 100% height down to the React virtual DOM container node */
 html, body, #root {
   height: 100%;
 }
