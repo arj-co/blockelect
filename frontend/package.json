@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "description": "React-based user interface for BlockElect decentralized voting system.",
+  "keywords": [
+    "ethereum",
+    "voting",
+    "dapp",
+    "react"
+  ],
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
