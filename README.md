@@ -79,6 +79,7 @@ This project serves as a **secure academic prototype** demonstrating how blockch
 ---
 
 ## Developer Guidelines
+- **Contract Compilation**: Compile changes using `npx hardhat compile` inside root project folder.
 - **Contract Updates**: If you modify `Voting.sol`, ensure that you compile and redeploy using Hardhat, and copy the new ABI artifact to `frontend/src/Voting.json`.
 - **Themeing**: Add new styling declarations using standard CSS custom properties in `frontend/src/index.css`.
 - **MetaMask Configuration**: When connecting to the local Hardhat node, add a custom RPC network with RPC URL `http://127.0.0.1:8545` and Chain ID `31337`.
