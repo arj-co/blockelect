@@ -79,6 +79,7 @@ This project serves as a **secure academic prototype** demonstrating how blockch
 ---
 
 ## Developer Guidelines
+- **Code Quality**: Verify styling guidelines and test scripts compilation before pushing commits to master.
 - **Contract Compilation**: Compile changes using `npx hardhat compile` inside root project folder.
 - **Contract Updates**: If you modify `Voting.sol`, ensure that you compile and redeploy using Hardhat, and copy the new ABI artifact to `frontend/src/Voting.json`.
 - **Themeing**: Add new styling declarations using standard CSS custom properties in `frontend/src/index.css`.
