@@ -13,7 +13,7 @@ function App() {
   const [loading, setLoading] = useState(false); // UI loading spinner toggle
   const [networkName, setNetworkName] = useState(null); // Chain name for the current provider
   const [error, setError] = useState(null); // Global error messages/toast contents
-  const [successMessage, setSuccessMessage] = useState(null); // Global success messages/toast contents
+  const [successMessage] = useState(null); // Global success messages/toast contents
   const [votingIndex, setVotingIndex] = useState(null); // Index of candidate currently being voted for
   const [contractExists, setContractExists] = useState(null); // Flag check if bytecode exists at deployed address
 
