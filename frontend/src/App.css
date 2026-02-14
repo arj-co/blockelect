@@ -1096,3 +1096,44 @@
     padding: 20px 16px;
   }
 }
+
+/* ── TICKER STRIP ── */
+.ticker-strip {
+  background: rgba(245, 158, 11, 0.06);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.18);
+  color: #f59e0b;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[data-theme="light"] .ticker-strip {
+  background: rgba(217, 119, 6, 0.05);
+  border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+  color: #d97706;
+}
+
+.ticker-wrap {
+  display: flex;
+  width: max-content;
+  animation: ticker-slide 35s linear infinite;
+}
+
+.ticker-item {
+  padding-right: 6rem;
+  white-space: nowrap;
+}
+
+@keyframes ticker-slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
